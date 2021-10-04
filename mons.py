@@ -8,265 +8,16 @@ b = 0.2
 c = 0.08
 
 character_health = 100
-monster_health = 40
-monster2_health = 100
-monster_boss = 150
-attack_punch = 5
-attack_jajanken = 15
-attack_liverblow = 10
-monster_damage = 2
-monster_damagetwo = 5
+monster_health = 10 
+monster2_health = 10
+attack_punch = 10
+attack_jajanken = 20
+attack_liverblow = 15
+monster_damage = 10
+monster_damagetwo = 15
 item = ""
+item_one = "PYTHON"
 
-
-def endAd():
-    print()
-    i2 ='>>>>>>>>> EXIT <<<<<<<<<<<'
-    for character in i2:
-            sys.stdout.write(character)
-            sys.stdout.flush()
-            time.sleep(c)
-    exit()
-    
-
-def attack_one():
-    global character_health
-    global monster_health
-    global attack_punch
-    global monster2_health
-    global monster_boss
-    monster_health=monster_health-attack_punch
-    monster2_health=monster2_health-attack_punch
-    monster_boss = monster_boss -attack_punch
-    character_health = character_health-monster_damagetwo
-
-def attack_two():
-    global character_health
-    global monster_health
-    global attack_jajanken
-    global monster2_health
-    global monster_boss
-    monster_health=monster_health-attack_jajanken
-    monster2_health=monster2_health-attack_jajanken
-    monster_boss = monster_boss -attack_jajanken
-    character_health = character_health-monster_damage
-    
-def attack_three():
-    global character_health
-    global monster_health
-    global attack_liverblow
-    global monster2_health
-    global monster_boss
-    monster_health=monster_health-attack_liverblow
-    monster2_health=monster2_health-attack_liverblow
-    monster_boss = monster_boss -attack_liverblow
-    character_health = character_health-monster_damage
-
-
- 
-def startAdventureIntro():
-    print()
-    i1 = 'You have enter the dungeon'
-    for character in i1:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(b)
-    print()
-    i2 = name + '! WELCOME TO THE FIRST FLOOR'
-    for character in i2:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(c)
-
-    print()
-    i3 = 'CERBERUS is the djinn that assigned in this area'
-    for character in i3:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(c)
-    print()
-    i4 = 'do you hear it? he is coming hurry up! kill him\n'
-    for character in i4:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(c)
-    startAdventure()
-
-def Adventure_secondIntro():
-    print("Hello!" + name+ " your character's health "+ str(character_health))
-    i2 ='WELCOME TO THE SECOND FLOOR'
-    for character in i2:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(c)
-
-    print()
-    i3 = 'KILL FORNEUS, THE SECOND DJINN AND GET THE HINT!'
-    for character in i3:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(c)
-    Adventure_second()
-
-def Adventure_bossIntro():
-    print("Hello!" + name+ " your character's health "+ str(character_health))
-    print()
-    i2 ='THE FINAL STAGE'
-    for character in i2:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(c)
-
-    print()
-    i1 ='FINAL BATTLE BETWEEN '+ name + ' and AMON THE FLAME DJINN' 
-    for character in i1:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(c)
-
-    print()
-    i3 = 'TO KILL OR TO BE KILLED? hurry! you can do it'
-    for character in i3:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(c)
-    Adventure_boss()
-        
-
-def startAdventure():
-    if character_health <=0:
-        Adventure_end()
-    if monster_health <= 0:
-        print("COMPLETED")
-        print("\n~~~~~~~~~~~~~~")
-        print("USE THIS LETTERS TO OPEN THE NEXT DOOR: PY")
-        print("~~~~~~~~~~~~~~")
-        print()
-        i1 ='....................................'
-        for character in i1:
-            sys.stdout.write(character)
-            sys.stdout.flush()
-            time.sleep(c)
-        startGame = input("\nWould you like to continue your adventure? ENTER THE LETTERS: ")
-        if startGame == "py" or startGame == "PY":
-            Adventure_secondIntro()
-        else:
-            Adventure_end()
-    
-        
-    
-    attack = int(input("\nATTACKS:\n\n1.PUNCH\n2.JAJANKEN\n3.LIVER BLOW\nenter the no. of your attack:"))
-    if attack == 1:
-            attack_one()
-            print("One hard punch; monster status " + str(monster_health))
-            print("Cerberus Thunder")
-            print("Character's health " + str(character_health))
-            startAdventure()
-    elif attack == 2:
-            attack_two()
-            print("jajanken with an overflowing nen; monster status " + str(monster_health))
-            print("Cerberus double kick")
-            print("Character's health " + str(character_health))
-            startAdventure()
-    elif attack == 3:
-            attack_three()
-            print ("Two consecutive liver blows: " + str(monster_health))
-            print("Cerberus long array thunder")
-            print("Character's health " + str(character_health))
-            startAdventure()
-    else:
-        
-        startAdventure()
-
-        
-
-
-def Adventure_second():
-    if character_health <=0:
-        Adventure_end()
-    if monster2_health <= 0:
-        print("COMPLETED")
-        print("\n~~~~~~~~~~~~~~")
-        print("ADD THIS LETTERS TO OPEN THE NEXT DOOR: TH")
-        print("~~~~~~~~~~~~~~")
-        print()
-        i1 ='....................................'
-        for character in i1:
-            sys.stdout.write(character)
-            sys.stdout.flush()
-            time.sleep(c)
-        startGame = input("\n\nWould you like to continue your adventure? ADD THE COLLECTED LETTERS FROM FORNEUS PY")
-        if startGame == "th" or startGame == "TH":
-            Adventure_bossIntro()
-        else:
-            Adventure_end()
-
-
-        
-    attack = int(input("\nATTACKS:\n\n1.PUNCH\n2.JAJANKEN\n3.LIVER BLOW\nenter the no. of your attack:"))
-    if attack == 1:
-            attack_two()
-            print("One hard punch; monster status " + str(monster2_health))
-            print("FORNEUS ICE MAKE TIGER")
-            print("Character's health " + str(character_health))
-            Adventure_second()
-    elif attack == 2:
-            attack_three()
-            print("jajanken with an overflowing nen; monster status " + str(monster2_health))
-            print("FORNEUS ICE JAIL")
-            print("Character's health " + str(character_health))
-            Adventure_second()
-    elif attack == 3:
-            attack_one()
-            print ("Two consecutive liver blows: " + str(monster2_health))
-            print("FORNEUS ICE MAKE BOW AND ARROW")
-            print("Character's health " + str(character_health))
-            Adventure_second()
-    else:
-        startAdventure()
-
-            
-def Adventure_boss():
-    if character_health <=0:
-        Adventure_end()
-    if monster_boss <= 0:
-        print("\nCOMPLETED")
-        print()
-        i1 ='....................................'
-        for character in i1:
-            sys.stdout.write(character)
-            sys.stdout.flush()
-            time.sleep(c)
-        print("\n~~~~~~~~~~~~~~")
-        print("ADD THESE LETTERS TO COMPLETE THE PASSWORD: ON")
-        print("~~~~~~~~~~~~~~")
-        startGame = input("\n\nCONGRATULATIONS! GET YOUR METAL VESSEL, ENTER THE PASSWORD: ")
-        if startGame == "python" or startGame == "PYTHON":
-            Adventure_vict()
-        else:
-            Adventure_end()
-
-    attack = int(input("\nATTACKS:\n\n1.PUNCH\n2.JAJANKEN\n3.LIVER BLOW\nenter the no. of your attack:"))
-    if attack == 1:
-            attack_one()
-            print("One hard punch; monster status " + str(monster_boss))
-            print("AMON FIRE STYLE, FIRE BALL")
-            print("Character's health" + str(character_health))
-            Adventure_boss()
-    elif attack == 2:
-            attack_two()
-            print("jajanken with an overflowing nen; monster status " + str(monster_boss))
-            print("AMON FIRE STYLE, FIRE DRAGON FLAME")
-            print("Character's health " + str(character_health))
-            Adventure_boss()
-    elif attack == 3:
-            attack_three()
-            print ("Two consecutive liver blows: " + str(monster_boss))
-            print("AMON FIRE STYLE, FIRE OR A ROARING DRAGON")
-            print("Character's health " + str(character_health))
-            Adventure_boss()
-    else:
-        startAdventure()
 
 
 def Adventure_end():
@@ -277,7 +28,42 @@ def Adventure_end():
             sys.stdout.flush()
             time.sleep(c)
     endAd()
-      
+    
+def endAd():
+    print()
+    i2 ='>>>>>>>>> EXIT <<<<<<<<<<<'
+    for character in i2:
+            sys.stdout.write(character)
+            sys.stdout.flush()
+            time.sleep(c)
+    exit()
+
+def attack_one():
+    global character_health
+    global monster_health
+    global attack_punch
+    global monster2_health
+    monster_health=monster_health-attack_punch
+    monster2_health=monster2_health-attack_punch
+    character_health = character_health-monster_damagetwo
+
+def attack_two():
+    global character_health
+    global monster_health
+    global attack_jajanken
+    global monster2_health
+    monster_health=monster_health-attack_jajanken
+    monster2_health=monster2_health-attack_jajanken
+    character_health = character_health-monster_damage
+    
+def attack_three():
+    global character_health
+    global monster_health
+    global attack_liverblow
+    global monster2_health
+    monster_health=monster_health-attack_liverblow
+    monster2_health=monster2_health-attack_liverblow
+    character_health = character_health-monster_damage
 def Adventure_vict():
     print()
     i1 ='C O N G R A T U L A T I O N S'
@@ -319,8 +105,6 @@ def Adventure_vict():
             sys.stdout.flush()
             time.sleep(c)
     endAd()
-
-
 
 
 print()
@@ -403,26 +187,134 @@ while character_health > 0:
 
 
     elif v == 2:
-        #damages the player
+
         print("You have jumped into the ravine")
         print("\nYour character has taken 10pt of damage")
         character_health = character_health - 10
 
     elif v == 3:
         print()
-        i1 = 'Hello ' + name + ' I am Aladdin, your magi for this dungeon\nto be able to get powerful metal vessel,\nyou must defeat the three djinns inside the dungeon'
+        i1 = 'Hello ' + name + ' I am Aladdin, your magi for this dungeon\nto be able to get powerful metal vessel,\nyou must defeat the two djinns inside the dungeon'
         for character in i1:
             sys.stdout.write(character)
             sys.stdout.flush()
             time.sleep(c)
         startGame = input("\n\nWould you like to start your adventure? (Y/N): ")
         if startGame == "n" or startGame == "N":
-            print("Rest for a second...")
+            endAd()
         if startGame == "y" or startGame == "Y":
-            startAdventureIntro()
+            monster = int(input("CHOOSE MONSTER [1]. CERBERUS [2]. FERNEUS"))
+            if monster == 1:
+                print()
+                i1 = 'You have enter the dungeon'
+                for character in i1:
+                    sys.stdout.write(character)
+                    sys.stdout.flush()
+                    time.sleep(b)
+                print()
+                i2 = name + '! WELCOME TO THE FIRST FLOOR'
+                for character in i2:
+                    sys.stdout.write(character)
+                    sys.stdout.flush()
+                    time.sleep(b)
+                print()
+                i3 = 'CERBERUS is the djinn that assigned in this area'
+                for character in i3:
+                    sys.stdout.write(character)
+                    sys.stdout.flush()
+                    time.sleep(b)
+                print()
+                i4 = 'do you hear it? he is coming hurry up! kill him\n'
+                for character in i4:
+                    sys.stdout.write(character)
+                    sys.stdout.flush()
+                    time.sleep(b)
+        print ("FORNEUS is preparing to attack")
+        time.sleep(3)
+        attack = int(input("\nATTACKS:\n\n1.PUNCH\n2.JAJANKEN\n3.LIVER BLOW\nenter the no. of your attack:"))
+        if attack == 1:
+            attack_one()
+            print("One hard punch; monster status " + str(monster_health))
+            print("Cerberus Thunder")
+            print("Character's health " + str(character_health))
+        elif attack == 2:
+            attack_two()
+            print("jajanken with an overflowing nen; monster status " + str(monster_health))
+            print("Cerberus double kick")
+            print("Character's health " + str(character_health))
+        elif attack == 3:
+            attack_three()
+            print ("Two consecutive liver blows: " + str(monster_health))
+            print("Cerberus long array thunder")
+            print("Character's health " + str(character_health))
+        print("COMPLETED")
+        print("\n~~~~~~~~~~~~~~")
+        print("YOUR PASSWORD TO GET THE METAL VESSEL:" + item_one )
+        print("~~~~~~~~~~~~~~")
+        print()
+        i1 ='....................................'
+        for character in i1:
+            sys.stdout.write(character)
+            sys.stdout.flush()
+            time.sleep(c)
+        startGame = input("\nWould you like to get yout new metal vessel?? INSERT THE ITEM: ")
+        if startGame == "python" or startGame == "PYTHON":
+           Adventure_vict()
         else:
-            Adventure_end()
+            endAd()
+        if monster == 2:
+            print("Hello!" + name+ " your character's health "+ str(character_health))
+    i2 ='WELCOME TO THE SECOND FLOOR'
+    for character in i2:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(c)
+
+    print()
+    i3 = 'KILL FORNEUS, THE SECOND DJINN AND GET THE PASSWORD TO GET THE METAL VESSEL !'
+    for character in i3:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(c)
+    print("FORNEUS IS PREPARING TO ATTACK")
+    time.sleep(3)
+    attack = int(input("\nATTACKS:\n\n1.PUNCH\n2.JAJANKEN\n3.LIVER BLOW\nenter the no. of your attack:"))
+    if attack == 1:
+            attack_two()
+            print("One hard punch; monster status " + str(monster2_health))
+            print("FORNEUS ICE MAKE TIGER")
+            print("Character's health " + str(character_health))
+    elif attack == 2:
+            attack_three()
+            print("jajanken with an overflowing nen; monster status " + str(monster2_health))
+            print("FORNEUS ICE JAIL")
+            print("Character's health " + str(character_health))
+    elif attack == 3:
+            attack_one()
+            print ("Two consecutive liver blows: " + str(monster2_health))
+            print("FORNEUS ICE MAKE BOW AND ARROW")
+            print("Character's health " + str(character_health))
+    print("COMPLETED")
+    print("\n~~~~~~~~~~~~~~")
+    print("YOUR PASSWORD TO GET THE METAL VESSEL:" + item_one )
+    print("~~~~~~~~~~~~~~")
+    print()
+    i1 ='....................................'
+    for character in i1:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(c)
+        startGame = input("\nWould you like to get yout new metal vessel?? INSERT THE PASSWORD: ")
+        if startGame == "python" or startGame == "PYTHON":
+           Adventure_vict()
+        else:
+            endAd()
+    
+            
+            
+        
+    else:
+        endAd()
 
 else:
         print("Invalid")
-
